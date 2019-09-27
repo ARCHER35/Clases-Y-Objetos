@@ -21,18 +21,6 @@ var Direccion = /** @class */ (function () {
 exports.Direccion = Direccion;
 var direccion = new Direccion("Cochabamba", "Sud", "27 de mayo");
 console.log(direccion);
-var Curso = /** @class */ (function () {
-    function Curso(nomb, desc, pre, doc) {
-        this.nombre = nomb;
-        this.descripcion = desc;
-        this.precio = pre;
-        this.docente = doc;
-    }
-    return Curso;
-}());
-exports.Curso = Curso;
-var curso = new Curso("Matematicas", "Numeros", 200, "Benjamin");
-console.log(curso);
 var Estudiante = /** @class */ (function () {
     function Estudiante(nomb, apell, correo, dir) {
         this.nombre = nomb;
@@ -43,7 +31,7 @@ var Estudiante = /** @class */ (function () {
     return Estudiante;
 }());
 exports.Estudiante = Estudiante;
-var estudiante = new Estudiante("Benjamin", "Sosa", "benjamin.zenteno@.com", direccion);
+var estudiante = new Estudiante("Benjamin", "Sosa", "benjamin.zenteno@.com", [direccion]);
 console.log(estudiante);
 var Docente = /** @class */ (function () {
     function Docente(nomb, apell, correo, prof, dir) {
@@ -56,8 +44,20 @@ var Docente = /** @class */ (function () {
     return Docente;
 }());
 exports.Docente = Docente;
-var docente = new Docente("Rodrigo", "Zenteno", "rodrigo.zenteno35@gmail.com", "Profesor", direccion);
+var docente = new Docente("Rodrigo", "Zenteno", "rodrigo.zenteno35@gmail.com", "Profesor", [direccion]);
 console.log(docente);
+var Curso = /** @class */ (function () {
+    function Curso(nomb, desc, pre, doc) {
+        this.nombre = nomb;
+        this.descripcion = desc;
+        this.precio = pre;
+        this.docente = doc;
+    }
+    return Curso;
+}());
+exports.Curso = Curso;
+var curso = new Curso("Matematicas", "Numeros", 200, [docente]);
+console.log(curso);
 var ComprarCurso = /** @class */ (function () {
     function ComprarCurso(fecha, curso, est) {
         this.fecha = fecha;

@@ -21,43 +21,29 @@ export class Direccion {
 let direccion:Direccion = new Direccion("Cochabamba","Sud","27 de mayo");
 console.log(direccion);
 
-export class Curso {
-    private nombre: string;
-    private descripcion: string;
-    private precio: number;
-    private docente: string; 
-    public constructor(nomb:string, desc:string, pre:number, doc:string) {
-        this.nombre = nomb;
-        this.descripcion = desc;
-        this.precio = pre;
-        this.docente = doc;
-    }
-}
-let curso:Curso = new Curso("Matematicas","Numeros",200,"Benjamin");
-console.log(curso);
-
 export class Estudiante {
     private nombre: string;
     private apellido: string;
     private correo: string;
-    private direccion: Direccion;
-    public constructor(nomb:string, apell:string, correo:string,dir:Direccion) {
+    private direccion: Direccion[];
+    public constructor(nomb:string, apell:string, correo:string,dir:Direccion[]) {
         this.nombre = nomb;
         this.apellido = apell;
         this.correo = correo;
         this.direccion = dir;
     }
 }
-let estudiante:Estudiante = new Estudiante("Benjamin","Sosa","benjamin.zenteno@.com",direccion);
+let estudiante:Estudiante = new Estudiante("Benjamin","Sosa","benjamin.zenteno@.com",[direccion]);
 console.log(estudiante);
+
 
 export class Docente {
     private nombre: string;
     private apellido: string;
     private correo: string;
     private profesion: string;
-    private direccion: Direccion
-    public constructor(nomb:string, apell:string, correo:string, prof:string, dir: Direccion) {
+    private direccion: Direccion[];
+    public constructor(nomb:string, apell:string, correo:string, prof:string, dir: Direccion[]) {
         this.nombre = nomb;
         this.apellido = apell;
         this.correo = correo;
@@ -65,9 +51,24 @@ export class Docente {
         this.direccion = dir;
     }
 }
-let docente:Docente = new Docente("Rodrigo","Zenteno","rodrigo.zenteno35@gmail.com","Profesor",direccion);
+let docente:Docente = new Docente("Rodrigo","Zenteno","rodrigo.zenteno35@gmail.com","Profesor",[direccion]);
 console.log(docente);
 
+
+export class Curso {
+    private nombre: string;
+    private descripcion: string;
+    private precio: number;
+    private docente: Docente[]; 
+    public constructor(nomb:string, desc:string, pre:number, doc:Docente[]) {
+        this.nombre = nomb;
+        this.descripcion = desc;
+        this.precio = pre;
+        this.docente = doc;
+    }
+}
+let curso:Curso = new Curso("Matematicas","Numeros",200,[docente]);
+console.log(curso);
 export class ComprarCurso {
     private fecha: string;
     private curso: Curso;
