@@ -67,5 +67,5 @@ var ComprarCurso = /** @class */ (function () {
     return ComprarCurso;
 }());
 exports.ComprarCurso = ComprarCurso;
-var compra1 = new ComprarCurso("17 de Enero", curso, estudiante);
+var compra1 = new ComprarCurso("17 de Enero", [curso], [estudiante]);
 console.log(compra1);

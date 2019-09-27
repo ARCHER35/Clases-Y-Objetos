@@ -71,13 +71,13 @@ let curso:Curso = new Curso("Matematicas","Numeros",200,[docente]);
 console.log(curso);
 export class ComprarCurso {
     private fecha: string;
-    private curso: Curso;
-    private estudiante: Estudiante;
-    public constructor(fecha:string, curso:Curso, est:Estudiante ) {
+    private curso: Curso[];
+    private estudiante: Estudiante[];
+    public constructor(fecha:string, curso:Curso[], est:Estudiante[] ) {
         this.fecha = fecha;
         this.curso = curso;
         this.estudiante = est;
     }
 }
-let compra1:ComprarCurso = new ComprarCurso("17 de Enero",curso,estudiante);
+let compra1:ComprarCurso = new ComprarCurso("17 de Enero",[curso],[estudiante]);
 console.log(compra1);
