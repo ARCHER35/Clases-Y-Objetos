@@ -10,49 +10,6 @@ exports.__esModule = true;
  * puede tener una o mas direcciones al mismo tiempo una direccion esta compuesta por la siguiente informacion:
  * ciudad,bario,calle
 //** */
-var Curso = /** @class */ (function () {
-    function Curso(nomb, desc, pre) {
-        this.nombre = nomb;
-        this.descripcion = desc;
-        this.precio = pre;
-    }
-    return Curso;
-}());
-exports.Curso = Curso;
-var curso1 = new Curso("Matematicas", "Numeros", 200);
-console.log(curso1);
-var Estudiante = /** @class */ (function () {
-    function Estudiante(nomb, apell, correo) {
-        this.nombre = nomb;
-        this.apellido = apell;
-        this.correo = correo;
-    }
-    return Estudiante;
-}());
-exports.Estudiante = Estudiante;
-var estudiante1 = new Estudiante("Rodrigo", "Zenteno", "rodrigo.zenteno@.com");
-console.log(estudiante1);
-var Docente = /** @class */ (function () {
-    function Docente(nomb, apell, correo, prof) {
-        this.nombre = nomb;
-        this.apellido = apell;
-        this.correo = correo;
-        this.profesion = prof;
-    }
-    return Docente;
-}());
-exports.Docente = Docente;
-var docente1 = new Docente("Rodrigo", "Zenteno", "rodrigo.zenteno@.com", "Profesor");
-console.log(docente1);
-var ComprarCurso = /** @class */ (function () {
-    function ComprarCurso(fecha) {
-        this.fecha = fecha;
-    }
-    return ComprarCurso;
-}());
-exports.ComprarCurso = ComprarCurso;
-var compra1 = new ComprarCurso("17 de Enero");
-console.log(compra1);
 var Direccion = /** @class */ (function () {
     function Direccion(ciudad, barrio, calle) {
         this.ciudad = ciudad;
@@ -62,5 +19,53 @@ var Direccion = /** @class */ (function () {
     return Direccion;
 }());
 exports.Direccion = Direccion;
-var direccion1 = new Direccion("Cochabamba", "Sud", "27 de mayo");
-console.log(direccion1);
+var direccion = new Direccion("Cochabamba", "Sud", "27 de mayo");
+console.log(direccion);
+var Curso = /** @class */ (function () {
+    function Curso(nomb, desc, pre, doc) {
+        this.nombre = nomb;
+        this.descripcion = desc;
+        this.precio = pre;
+        this.docente = doc;
+    }
+    return Curso;
+}());
+exports.Curso = Curso;
+var curso = new Curso("Matematicas", "Numeros", 200, "Benjamin");
+console.log(curso);
+var Estudiante = /** @class */ (function () {
+    function Estudiante(nomb, apell, correo, dir) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.correo = correo;
+        this.direccion = dir;
+    }
+    return Estudiante;
+}());
+exports.Estudiante = Estudiante;
+var estudiante = new Estudiante("Benjamin", "Sosa", "benjamin.zenteno@.com", direccion);
+console.log(estudiante);
+var Docente = /** @class */ (function () {
+    function Docente(nomb, apell, correo, prof, dir) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.correo = correo;
+        this.profesion = prof;
+        this.direccion = dir;
+    }
+    return Docente;
+}());
+exports.Docente = Docente;
+var docente = new Docente("Rodrigo", "Zenteno", "rodrigo.zenteno35@gmail.com", "Profesor", direccion);
+console.log(docente);
+var ComprarCurso = /** @class */ (function () {
+    function ComprarCurso(fecha, curso, est) {
+        this.fecha = fecha;
+        this.curso = curso;
+        this.estudiante = est;
+    }
+    return ComprarCurso;
+}());
+exports.ComprarCurso = ComprarCurso;
+var compra1 = new ComprarCurso("17 de Enero", curso, estudiante);
+console.log(compra1);

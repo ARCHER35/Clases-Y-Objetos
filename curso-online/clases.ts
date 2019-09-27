@@ -8,56 +8,6 @@
  * puede tener una o mas direcciones al mismo tiempo una direccion esta compuesta por la siguiente informacion:
  * ciudad,bario,calle
 //** */ 
-export class Curso {
-    private nombre: string;
-    private descripcion: string;
-    private precio: number;
-    public constructor(nomb:string, desc:string, pre:number) {
-        this.nombre = nomb;
-        this.descripcion = desc;
-        this.precio = pre;
-    }
-}
-let curso1:Curso = new Curso("Matematicas","Numeros",200);
-console.log(curso1);
-
-export class Estudiante {
-    private nombre: string;
-    private apellido: string;
-    private correo: string;
-    public constructor(nomb:string, apell:string, correo:string) {
-        this.nombre = nomb;
-        this.apellido = apell;
-        this.correo = correo;
-    }
-}
-let estudiante1:Estudiante = new Estudiante("Rodrigo","Zenteno","rodrigo.zenteno@.com");
-console.log(estudiante1);
-
-export class Docente {
-    private nombre: string;
-    private apellido: string;
-    private correo: string;
-    private profesion: string
-    public constructor(nomb:string, apell:string, correo:string, prof:string) {
-        this.nombre = nomb;
-        this.apellido = apell;
-        this.correo = correo;
-        this.profesion = prof;
-    }
-}
-let docente1:Docente = new Docente("Rodrigo","Zenteno","rodrigo.zenteno@.com","Profesor");
-console.log(docente1);
-
-export class ComprarCurso {
-    private fecha: string;
-    public constructor(fecha:string,) {
-        this.fecha = fecha;
-    }
-}
-let compra1:ComprarCurso = new ComprarCurso("17 de Enero");
-console.log(compra1);
-
 export class Direccion {
     private ciudad: string;
     private barrio: string;
@@ -68,5 +18,65 @@ export class Direccion {
         this.calle = calle;
     }
 }
-let direccion1:Direccion = new Direccion("Cochabamba","Sud","27 de mayo");
-console.log(direccion1);
+let direccion:Direccion = new Direccion("Cochabamba","Sud","27 de mayo");
+console.log(direccion);
+
+export class Curso {
+    private nombre: string;
+    private descripcion: string;
+    private precio: number;
+    private docente: string; 
+    public constructor(nomb:string, desc:string, pre:number, doc:string) {
+        this.nombre = nomb;
+        this.descripcion = desc;
+        this.precio = pre;
+        this.docente = doc;
+    }
+}
+let curso:Curso = new Curso("Matematicas","Numeros",200,"Benjamin");
+console.log(curso);
+
+export class Estudiante {
+    private nombre: string;
+    private apellido: string;
+    private correo: string;
+    private direccion: Direccion;
+    public constructor(nomb:string, apell:string, correo:string,dir:Direccion) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.correo = correo;
+        this.direccion = dir;
+    }
+}
+let estudiante:Estudiante = new Estudiante("Benjamin","Sosa","benjamin.zenteno@.com",direccion);
+console.log(estudiante);
+
+export class Docente {
+    private nombre: string;
+    private apellido: string;
+    private correo: string;
+    private profesion: string;
+    private direccion: Direccion
+    public constructor(nomb:string, apell:string, correo:string, prof:string, dir: Direccion) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.correo = correo;
+        this.profesion = prof;
+        this.direccion = dir;
+    }
+}
+let docente:Docente = new Docente("Rodrigo","Zenteno","rodrigo.zenteno35@gmail.com","Profesor",direccion);
+console.log(docente);
+
+export class ComprarCurso {
+    private fecha: string;
+    private curso: Curso;
+    private estudiante: Estudiante;
+    public constructor(fecha:string, curso:Curso, est:Estudiante ) {
+        this.fecha = fecha;
+        this.curso = curso;
+        this.estudiante = est;
+    }
+}
+let compra1:ComprarCurso = new ComprarCurso("17 de Enero",curso,estudiante);
+console.log(compra1);
