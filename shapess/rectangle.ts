@@ -36,16 +36,19 @@ export class Rectangle {
     public getWidth(): number {
         return this.width;
     }
+    public getArea(): number {
+        let area:number =this.width * this.height;
+        return area;
+    }
 }
 let rectangle1:Rectangle = new Rectangle(3,4,5,6);
 console.log(rectangle1);
 
 rectangle1.setPosX(7);
-//console.log(rectangle1.getPosX());
-rectangle1.setPosY(5);
-//console.log(rectangle1.getPosY());
+rectangle1.setPosY(7);
 rectangle1.setHeight(10);
-//console.log(rectangle1.getHeight());
 rectangle1.setWidth(9);
-//console.log(rectangle1.getWidth());
 console.log(rectangle1);
+
+let areaRectangle1: number = rectangle1.getArea();
+console.log(areaRectangle1);

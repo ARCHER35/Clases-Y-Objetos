@@ -34,17 +34,19 @@ var Rectangle = /** @class */ (function () {
     Rectangle.prototype.getWidth = function () {
         return this.width;
     };
+    Rectangle.prototype.getArea = function () {
+        var area = this.width * this.height;
+        return area;
+    };
     return Rectangle;
 }());
 exports.Rectangle = Rectangle;
 var rectangle1 = new Rectangle(3, 4, 5, 6);
 console.log(rectangle1);
 rectangle1.setPosX(7);
-//console.log(rectangle1.getPosX());
-rectangle1.setPosY(5);
-//console.log(rectangle1.getPosY());
+rectangle1.setPosY(7);
 rectangle1.setHeight(10);
-//console.log(rectangle1.getHeight());
 rectangle1.setWidth(9);
-//console.log(rectangle1.getWidth());
 console.log(rectangle1);
+var areaRectangle1 = rectangle1.getArea();
+console.log(areaRectangle1);
