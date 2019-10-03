@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+var prueba2_1 = require("./prueba2");
 //resuelva el siguiente ejercicio usando programacion orientada objetos y herencia: se necesita
 //implementar un sistema para la venta de peliculas en formatos cd ,dvd, blu-ray, donde debe estar involucrado 
 //el cliente, se debe guardar cds,dvds,blue-rays en una misma lista se debe calcular el monto total
@@ -29,37 +30,37 @@ var Cliente = /** @class */ (function () {
 }());
 exports.Cliente = Cliente;
 var Disco = /** @class */ (function () {
-    function Disco(nom, precio, cli) {
+    function Disco(nom, pre, cli) {
         this.name = nom;
-        this.preciocio = precio;
+        this.precio = pre;
         this.cliente = cli;
     }
-    Disco.prototype.setPreciocio = function (preciocio) {
-        this.preciocio = preciocio;
+    Disco.prototype.setPrecio = function (precio) {
+        this.precio = precio;
     };
-    Disco.prototype.getPreciocio = function () {
-        return this.preciocio;
+    Disco.prototype.getPrecio = function () {
+        return this.precio;
     };
     return Disco;
 }());
 var Cd = /** @class */ (function (_super) {
     __extends(Cd, _super);
-    function Cd(name, precio, cli) {
-        return _super.call(this, name, precio, cli) || this;
+    function Cd(name, pre, cli) {
+        return _super.call(this, name, pre, cli) || this;
     }
     return Cd;
 }(Disco));
 var Dvd = /** @class */ (function (_super) {
     __extends(Dvd, _super);
-    function Dvd(name, precio, cli) {
-        return _super.call(this, name, precio, cli) || this;
+    function Dvd(name, pre, cli) {
+        return _super.call(this, name, pre, cli) || this;
     }
     return Dvd;
 }(Disco));
 var Blueray = /** @class */ (function (_super) {
     __extends(Blueray, _super);
-    function Blueray(name, precio, cli) {
-        return _super.call(this, name, precio, cli) || this;
+    function Blueray(name, pre, cli) {
+        return _super.call(this, name, pre, cli) || this;
     }
     return Blueray;
 }(Disco));
@@ -84,39 +85,62 @@ var Venta = /** @class */ (function () {
         this.cliente = cliente;
     }
     Venta.prototype.montoVenta = function () {
-        var monto = this.producto.preciocio;
-        console.log(monto);
+        var monto = this.producto.getPrecio();
         return monto;
     };
     return Venta;
 }());
 exports.Venta = Venta;
-var ventas;
+var venta;
 var venta1 = new Venta(cd1, cliente);
 var venta2 = new Venta(blu3, cliente);
 var venta3 = new Venta(blu2, cliente);
 venta1.montoVenta();
-ventas.push(venta1);
-ventas.push(venta2);
-ventas.push(venta3);
+venta2.montoVenta();
+venta3.montoVenta();
 var Tienda = /** @class */ (function () {
-    function Tienda(nombre) {
-        this.venta = Venta[];
-        this.nombreT = nombre;
+    function Tienda(nombret) {
+        this.nombreT = nombret;
         this.venta = [];
     }
-    Tienda.prototype.totalVentaCd = function (venta) {
-        this.venta.push(venta);
+    Tienda.prototype.totalVentaCd = function (venta1) {
+        this.venta.push(venta1);
     };
     Tienda.prototype.calVentaCd = function () {
         var suma = 0;
         for (var i = 0; i < this.venta.length; i++) {
             var prod = this.venta[i].producto;
-            //if (prod instanceof Cd) {
-            //  suma += prod.preciocio
-            //}
+            suma += prod.precio;
             return suma;
         }
+    };
+    Tienda.prototype.calVentaDvd = function () {
+        var suma = 0;
+        for (var i = 0; i < this.venta.length; i++) {
+            var prod = this.venta[i].producto;
+            if (prod instanceof Dvd) {
+                suma += prod.precio;
+            }
+        }
+        return suma;
+    };
+    Tienda.prototype.calcularVentaBluRay = function () {
+        var suma = 0;
+        for (var i = 0; i < this.venta.length; i++) {
+            var prod = this.venta[i].producto;
+            if (prod instanceof prueba2_1.BluRay) {
+                suma += prod.precio;
+            }
+        }
+        return suma;
+    };
+    Tienda.prototype.totalVentas = function () {
+        var suma = 0;
+        for (var i = 0; i < this.venta.length; i++) {
+            var prod = this.venta[i].producto;
+            suma += prod.precio;
+        }
+        return suma;
     };
     return Tienda;
 }());
@@ -125,5 +149,10 @@ var tienda1 = new Tienda("center");
 tienda1.totalVentaCd(venta1);
 tienda1.totalVentaCd(venta2);
 tienda1.totalVentaCd(venta3);
-var ingresosCds = tienda1.calVentaCd();
-console.log("los ingresos de la venta son ", ingresosCds, "Bs");
+console.log(tienda1);
+var ingresoscds = tienda1.calVentaCd();
+var ingresosdvd = tienda1.calVentaDvd();
+var ingresosbluray = tienda1.calcularVentaBluRay();
+console.log("los ingresos de la venta son ", ingresoscds, "Bs");
+console.log(ingresosdvd);
+console.log(ingresosbluray);

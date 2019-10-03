@@ -1,7 +1,7 @@
 export class Disco {
-    nombre: string;
-    precio: number;
-    categoria: string;
+    protected nombre: string;
+    protected precio: number;
+    protected categoria: string;
     constructor(nombre: string, precio: number, categoria: string) {
         this.nombre = nombre;
         this.precio = precio;

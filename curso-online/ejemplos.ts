@@ -1,3 +1,5 @@
+import { BluRay } from "./prueba2";
+
 //resuelva el siguiente ejercicio usando programacion orientada objetos y herencia: se necesita
 //implementar un sistema para la venta de peliculas en formatos cd ,dvd, blu-ray, donde debe estar involucrado 
 //el cliente, se debe guardar cds,dvds,blue-rays en una misma lista se debe calcular el monto total
@@ -14,33 +16,33 @@ export class Cliente {
 }
 abstract class Disco {
     private name: string;
-    private preciocio: number;
+    precio: number;
     private cliente: Cliente;
-    public constructor(nom:string, precio:number, cli:Cliente) {
+    public constructor(nom:string, pre:number, cli:Cliente) {
         this.name = nom; 
-        this.preciocio = precio;
+        this.precio = pre;
         this.cliente = cli;
     }
-    public setPreciocio(preciocio:number): void {
-        this.preciocio = preciocio;
+    public setPrecio(precio:number): void {
+        this.precio = precio;
     }
-    public getPreciocio():number{
-        return this.preciocio;
+    public getPrecio():number{
+        return this.precio;
     }
 }
 class Cd extends Disco {
-    constructor(name:string, precio:number, cli:Cliente) {
-        super(name,precio,cli);
+    constructor(name:string, pre:number, cli:Cliente) {
+        super(name,pre,cli);
     }
 }
 class Dvd extends Disco {
-    constructor(name:string, precio:number , cli:Cliente) {
-        super(name,precio,cli);
+    constructor(name:string, pre:number , cli:Cliente) {
+        super(name,pre,cli);
     }
 }
 class Blueray extends Disco {
-    constructor(name: string, precio:number, cli:Cliente) {
-        super(name,precio,cli);
+    constructor(name: string, pre:number, cli:Cliente) {
+        super(name,pre,cli);
     }
 }
 
@@ -68,45 +70,76 @@ export class Venta {
         this.cliente = cliente;
     }
     montoVenta(): number{
-        let monto = this.producto.preciocio;
-        console.log(monto);
+        let monto = this.producto.getPrecio();
         return monto;
     }
 }
-let ventas: Array<Venta>;
+let venta: Array<Venta>;
 let venta1: Venta = new Venta(cd1,cliente);
 let venta2: Venta = new Venta(blu3,cliente);
 let venta3: Venta = new Venta(blu2,cliente);
 venta1.montoVenta();
-ventas.push(venta1);
-ventas.push(venta2);
-ventas.push(venta3);
-
+venta2.montoVenta();
+venta3.montoVenta();
 export class Tienda {
-    private venta = Venta[];
+    private venta: Venta[];
     private nombreT: string;
-    public constructor (nombre: string) {
-        this.nombreT = nombre;
+    public constructor (nombret: string) {
+        this.nombreT = nombret;
         this.venta = [];
     }
-    public totalVentaCd(venta:Venta): void {
-        this.venta.push(venta);
+    public totalVentaCd(venta1:Venta): void {
+        this.venta.push(venta1);
     }
     public calVentaCd():number {
         let suma = 0;
         for (let i = 0; i < this.venta.length; i++) {
             let prod =this.venta[i].producto
-            //if (prod instanceof Cd) {
-              //  suma += prod.preciocio
-            //}
+            suma += prod.precio;
             return suma;
         }
+    }
+    calVentaDvd(): number {
+        let suma = 0;
+        for (let i = 0; i < this.venta.length; i++) {
+            let prod = this.venta[i].producto;
+            if (prod instanceof Dvd) {
+                suma += prod.precio;
+            }
+        }
+        return suma;
+    }
+
+    calcularVentaBluRay(): number {
+        let suma = 0;
+        for (let i = 0; i < this.venta.length; i++) {
+            let prod = this.venta[i].producto;
+            if (prod instanceof BluRay) {
+                suma += prod.precio;
+            }
+        }
+        return suma;
+    }
+
+    totalVentas(): number {
+        let suma = 0;
+        for (let i = 0; i < this.venta.length; i++) {
+            let prod = this.venta[i].producto;
+            suma += prod.precio;
+        }
+        return suma;
     }
 }
 let tienda1:Tienda = new Tienda("center");
 tienda1.totalVentaCd(venta1);
 tienda1.totalVentaCd(venta2);
 tienda1.totalVentaCd(venta3);
-let ingresosCds = tienda1.calVentaCd();
-console.log("los ingresos de la venta son ",ingresosCds,"Bs");
+console.log(tienda1);
+
+let ingresoscds = tienda1.calVentaCd();
+let ingresosdvd = tienda1.calVentaDvd();
+let ingresosbluray = tienda1.calcularVentaBluRay();
+console.log("los ingresos de la venta son ",ingresoscds,"Bs");
+console.log(ingresosdvd);
+console.log(ingresosbluray);
 

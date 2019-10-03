@@ -1,6 +1,6 @@
 export class Vehiculo {
     private modelo:string;
-    precio:number;
+    protected precio:number;
     private ruedas:number;
     constructor(modelo:string, precio:number, ruedas:number) {
         this.modelo = modelo;
