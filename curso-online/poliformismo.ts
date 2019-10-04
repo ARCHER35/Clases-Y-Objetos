@@ -20,7 +20,7 @@ export class PelotaTenis extends Pelota {
 }
 export class pelotaGolf extends Pelota {
     constructor(nombre:string, tamaño:string, color:string) {
-        super(nombre,tamaño,color)
+        super(nombre,tamaño,color);
     }
 }
 export class PelotaBasketball extends Pelota {
@@ -76,7 +76,7 @@ export class LG extends Celulares {
         super(marca,modelo,tamaño);
     }
     public getPrecio(): number {
-        let precio:number = 1400
+        let precio:number = 1400;
         return precio;
     }
 }
@@ -130,13 +130,13 @@ export interface Informacion {
 
 export class Televisor extends Electrodomesticos implements ConeccionInternet, Informacion  {
     constructor(nombre:string, precio:number, marca:string) {
-        super(nombre,precio,marca)
+        super(nombre,precio,marca);
     }
     navegar(): string {
         return "El telivesor tiene Smart tiene acceso a la Navegacion";
     }
     inf(): string {
-        return "El televisor recibe informacion"
+        return "El televisor recibe informacion";
     }
 }
 export class Computadora extends Electrodomesticos implements ConeccionInternet, Informacion {
@@ -147,7 +147,7 @@ export class Computadora extends Electrodomesticos implements ConeccionInternet,
         return "La Computadora tiene distintas entradas al Navegador";
     }
     inf(): string {
-        return "La computadora recibe y da informacion"
+        return "La computadora recibe y da informacion";
     }
 }
 export class Refrigerador extends Electrodomesticos implements Atempera, Informacion {
@@ -158,7 +158,7 @@ export class Refrigerador extends Electrodomesticos implements Atempera, Informa
         return "El refrigerador tiene la funcion de enfriar y conservar los producctos";
     }
     inf(): string {
-        return "El refrigerador recibe informacion"
+        return "El refrigerador recibe informacion";
     }
 }
 export class Lavadora extends Electrodomesticos implements Limpia, Informacion {
@@ -169,7 +169,7 @@ export class Lavadora extends Electrodomesticos implements Limpia, Informacion {
         return "La lavadora se encarga de la lavar a repa";
     }
     inf(): string {
-        return "La lavadora recibe informacion"
+        return "La lavadora recibe informacion";
     }
 }
 export class Cocina extends Electrodomesticos implements CalientaComida {
@@ -177,7 +177,7 @@ export class Cocina extends Electrodomesticos implements CalientaComida {
         super(nombre,precio,marca);
     }
     calienta(): string {
-        return "La cocina tiene 6 Hornillas con las cuales calientan o cocinan la comida"
+        return "La cocina tiene 6 Hornillas con las cuales calientan o cocinan la comida";
     }
 }
 export class PLancha extends Electrodomesticos {
@@ -185,7 +185,7 @@ export class PLancha extends Electrodomesticos {
         super(nombre,precio,marca);
     }
     limpia(): string {
-        return "la plancha se encarga planchar y desinfectar"
+        return "la plancha se encarga planchar y desinfectar";
     }
 }
 export class Smartphone extends Electrodomesticos implements ConeccionInternet, Informacion {
@@ -193,10 +193,10 @@ export class Smartphone extends Electrodomesticos implements ConeccionInternet, 
         super(nombre,precio,marca);
     }
     navegar(): string {
-        return "El smartphone tiene conecciones Inalambricas"
+        return "El smartphone tiene conecciones Inalambricas";
     }
     inf(): string {
-        return "El smartphone recibe y manda informacion"
+        return "El smartphone recibe y manda informacion";
     }
 }
 export class Microonda extends Electrodomesticos implements CalientaComida {
@@ -204,7 +204,7 @@ export class Microonda extends Electrodomesticos implements CalientaComida {
         super(nombre,precio,marca);
     }
     calienta(): string {
-        return "El microonda tiene la funcion de calentar o llegar a cocinar a altas temperaturas"
+        return "El microonda tiene la funcion de calentar o llegar a cocinar a altas temperaturas";
     }
 }
 export class Ventilador extends Electrodomesticos implements Atempera {
@@ -212,7 +212,7 @@ export class Ventilador extends Electrodomesticos implements Atempera {
         super(nombre,precio,marca);
     }
     atempera(): string {
-        return "El ventilador Atempera el ambiente cuando hace calor"
+        return "El ventilador Atempera el ambiente cuando hace calor";
     }
 }
 export class Calefactor extends Electrodomesticos implements Atempera {
@@ -220,7 +220,7 @@ export class Calefactor extends Electrodomesticos implements Atempera {
         super(nombre,precio,marca);
     }
     atempera(): string{
-        return "El calefactor calienta el ambiente en tiempos de frio"
+        return "El calefactor calienta el ambiente en tiempos de frio";
     }
 }
 let electro1:Televisor = new Televisor("Televisor",2500,"LG");
