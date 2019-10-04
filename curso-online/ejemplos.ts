@@ -1,5 +1,3 @@
-import { BluRay } from "./prueba2";
-
 //resuelva el siguiente ejercicio usando programacion orientada objetos y herencia: se necesita
 //implementar un sistema para la venta de peliculas en formatos cd ,dvd, blu-ray, donde debe estar involucrado 
 //el cliente, se debe guardar cds,dvds,blue-rays en una misma lista se debe calcular el monto total
